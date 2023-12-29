@@ -8,6 +8,9 @@ This is a script to scrape twitter and get info by using selenium library in pyt
 * time (built-in module)
 * pyperclip (built-in module)
 
+## Important Note:
+You have to install chrome extension into your main folder --> [run.py , twitter, chromedriver.exe]
+
 ## How to use :
 * Download all the files from the repo.
 * Change the constants value in constants.py file.
