@@ -214,6 +214,10 @@ class UseTwitter(webdriver.Chrome):
             return tweet_texts, tweet_images, tweet_videos, ''
 
 
+def optimization():
+    pass
+
+
 
 
 
