@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from twitter.errors import NotFoundError
 import twitter.constants as const
 from bs4 import BeautifulSoup
 import datetime
@@ -67,6 +68,15 @@ class UseTwitter(webdriver.Chrome):
         click_this = self.find_element(By.XPATH,
                                        f"//div[@tabindex='-1']/div[@class='css-175oi2r'][div[@dir='ltr'][span[text()[contains(., '@{user_id}')]]]]")
         click_this.click()
+
+    def get_banner(self):
+        try:
+            banner = self.find_element(By.XPATH, "//div[@class='css-175oi2r']/a[@role='link']//img[@draggable='true']")
+            user_banner = banner.get_attribute('src')
+            return user_banner
+        except:
+            print('Banner not found!')
+            raise NotFoundError('Banner Not Found')
 
     def get_profile(self):
         time.sleep(5)
